@@ -1,6 +1,5 @@
 package com.produtos.models;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 
 import javax.persistence.*;
@@ -12,7 +11,7 @@ import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 public class Produto extends PanacheEntityBase{
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
 
 	@Column(nullable = false)
@@ -23,7 +22,7 @@ public class Produto extends PanacheEntityBase{
 
 	@Column(nullable = false)
 	private BigDecimal valor;
-	
+
 	
 	public long getId() {
 		return id;
