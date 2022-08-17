@@ -3,9 +3,9 @@ FROM quay.io/quarkus/ubi-quarkus-native-image:22.1-java11 AS build
 COPY --chown=quarkus:quarkus mvnw /code/mvnw
 COPY --chown=quarkus:quarkus .mvn /code/.mvn
 COPY --chown=quarkus:quarkus pom.xml /code/
+USER quarkus
 RUN chmod -R 666 /code
 RUN chmod 775 /code/mvnw
-USER quarkus
 WORKDIR /code
 RUN ./mvnw -B org.apache.maven.plugins:maven-dependency-plugin:3.1.2:go-offline
 COPY src /code/src
